@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Outputs produced by code/run_task_aware_transfer.py
+code/raw_results*.csv
+code/summary*.csv
+code/run_metadata*.json
+runs/
+
+.DS_Store
+Thumbs.db

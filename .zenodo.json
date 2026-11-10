@@ -1,0 +1,37 @@
+{
+  "title": "TAC-R2S2R verified GPU runs: 160 seeded runs of a controlled synthetic sim-to-real transfer proxy",
+  "upload_type": "dataset",
+  "publication_date": "2026-11-11",
+  "version": "1.0.0",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Li, Zipeng",
+      "affiliation": "School of Physics and Optoelectronic Engineering, Guangdong University of Technology, Guangzhou, China"
+    },
+    {
+      "name": "Chen, Jing",
+      "affiliation": "School of Physics and Optoelectronic Engineering, Guangdong University of Technology, Guangzhou, China"
+    }
+  ],
+  "description": "<p>Seed-level metrics, per-epoch training logs and a verification script for 160 GPU runs (4 methods &times; 4 source-domain budgets &times; 10 seeds) of a synthetic binary grasp-and-place classification proxy. The data support the paired-consistency component of the TAC-R2S2R framework described in the accompanying manuscript submitted to <em>IEEE Access</em>.</p><p><strong>Evidence boundary.</strong> This is a controlled synthetic mechanism test. It is not a physical-robot experiment, not a vision-language-action policy training run, and not a complete Real2Sim2Real benchmark. The field <code>target_success_rate</code> is a legacy name for binary classification accuracy on target-domain samples and does not denote robot task success. No physical parameter is identified from measured data.</p><p><strong>Contents.</strong> <code>data/verified_runs.json</code> (structured snapshot: 2 GPU records, 16 aggregates, 160 per-run records with confusion matrices, 10-bin calibration and full 90-epoch history); <code>data/run_metrics.csv</code> (160 rows); <code>data/summary.csv</code> (16 rows with two-sided 95% t-intervals, df=9); <code>data/training_history.csv</code> (14,400 rows = 160 runs &times; 90 epochs); <code>data/paired_contrasts.csv</code>; collection code (<code>code/run_task_aware_transfer.py</code>, self-contained synthetic-domain generator and trainer); and <code>code/verify_numbers.py</code>, which re-derives every headline number in the manuscript from the released files using the standard library only.</p><p>Reported hardware: NVIDIA GeForce RTX 4060 (8.0 GiB) and RTX 5060 Ti (15.93 GiB), Python 3.12.3, PyTorch 2.11.0+cu128, CUDA 12.8. Each 80-run sweep takes roughly 75 s of wall clock.</p><p>Code is MIT licensed; data and figures are CC BY 4.0.</p>",
+  "keywords": [
+    "sim-to-real transfer",
+    "embodied manipulation",
+    "domain randomization",
+    "reproducibility",
+    "synthetic proxy evaluation",
+    "GPU experiment logs",
+    "TAC-R2S2R"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/lemonbaby2/tac-r2s2r-verified-runs",
+      "resource_type": "dataset"
+    }
+  ],
+  "notes": "Data-availability artifact for the manuscript 'TAC-R2S2R: Task-Aware Consistency and Residual Closed-Loop Transfer for Embodied Manipulation' (Li & Chen, submitted to IEEE Access, 2026)."
+}

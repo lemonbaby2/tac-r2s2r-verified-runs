@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite both the dataset below and the accompanying manuscript."
+type: dataset
+title: "TAC-R2S2R verified GPU runs: 160 seeded runs of a controlled synthetic sim-to-real transfer proxy"
+abstract: >-
+  Seed-level metrics, per-epoch training logs and a verification script for 160 GPU runs
+  (4 methods x 4 source-domain budgets x 10 seeds) of a synthetic binary grasp-and-place
+  classification proxy used to evaluate the paired-consistency component of the TAC-R2S2R
+  framework. The data are a controlled synthetic mechanism test and are not a physical-robot
+  experiment, not a VLA policy training run, and not a complete Real2Sim2Real benchmark.
+  The field `target_success_rate` is a legacy name for binary classification accuracy and
+  does not denote robot task success.
+version: "1.0.0"
+date-released: "2026-11-11"
+license: CC-BY-4.0
+repository-code: "https://github.com/lemonbaby2/tac-r2s2r-verified-runs"
+keywords:
+  - sim-to-real transfer
+  - embodied manipulation
+  - domain randomization
+  - reproducibility
+  - synthetic proxy evaluation
+  - GPU experiment logs
+authors:
+  - family-names: Li
+    given-names: Zipeng
+    affiliation: "School of Physics and Optoelectronic Engineering, Guangdong University of Technology, Guangzhou, China"
+  - family-names: Chen
+    given-names: Jing
+    affiliation: "School of Physics and Optoelectronic Engineering, Guangdong University of Technology, Guangzhou, China"
+    email: jchen125@gdut.edu.cn
+references:
+  - type: article
+    title: "TAC-R2S2R: Task-Aware Consistency and Residual Closed-Loop Transfer for Embodied Manipulation"
+    authors:
+      - family-names: Li
+        given-names: Zipeng
+      - family-names: Chen
+        given-names: Jing
+    status: submitted
+    notes: "Submitted to IEEE Access, 2026"

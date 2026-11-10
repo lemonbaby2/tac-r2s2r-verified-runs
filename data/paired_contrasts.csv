@@ -1,0 +1,10 @@
+﻿budget,contrast,metric,mean,ci95_half
+2048,tac_consistency minus source_only,target_success_rate,0.079052734375,0.014854192417151491
+2048,tac_consistency minus source_only,unsafe_confident_error_rate,-0.102392578125,0.014216649281957096
+2048,tac_consistency minus source_only,brier_score,-0.08221844956278801,0.013939000913813736
+2048,tac_consistency minus uniform_dr,target_success_rate,0.16890869140625,0.014734891961764926
+2048,tac_consistency minus uniform_dr,unsafe_confident_error_rate,-0.1037109375,0.016186069463306973
+2048,tac_consistency minus uniform_dr,brier_score,-0.12615920156240462,0.012878804605341706
+2048,tac_consistency minus task_weighted,target_success_rate,0.3537109375,0.10607924946509727
+2048,tac_consistency minus task_weighted,unsafe_confident_error_rate,-0.39962158203125,0.10589881651655605
+2048,tac_consistency minus task_weighted,brier_score,-0.37195066660642623,0.10608442584595527
