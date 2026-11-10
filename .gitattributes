@@ -1,0 +1,15 @@
+# Keep released data byte-identical to the archived snapshot.
+# CSVs were captured on Windows with CRLF line endings and a UTF-8 BOM;
+# converting them would change file sizes and break byte-level comparison
+# against the archived run outputs.
+*.csv -text
+*.json -text
+*.png binary
+
+# Prose and code normalise to LF for review diffs.
+*.md text eol=lf
+*.py text eol=lf
+*.cff text eol=lf
+LICENSE text eol=lf
+LICENSE-DATA text eol=lf
+.gitignore text eol=lf
