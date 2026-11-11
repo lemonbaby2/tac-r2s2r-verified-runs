@@ -1,0 +1,38 @@
+{
+  "timestamp_local": "2026-11-11 22:33:12",
+  "device": "cuda:0",
+  "gpu": "NVIDIA GB10",
+  "gpu_total_memory_gib": 121.69,
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "python": "3.12.3",
+  "platform": "Linux-6.17.0-1021-nvidia-aarch64-with-glibc2.39",
+  "seeds": [
+    11,
+    23,
+    37,
+    53,
+    71,
+    83,
+    97,
+    109,
+    127,
+    149
+  ],
+  "budgets": [
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "methods": [
+    "source_only",
+    "uniform_dr",
+    "task_weighted",
+    "tac_consistency"
+  ],
+  "target_test_samples_per_run": 8192,
+  "total_runs": 160,
+  "total_wall_seconds": 89.90070643101353,
+  "claim_boundary": "Controlled synthetic domain-transfer mechanism test; not a real-robot experiment."
+}

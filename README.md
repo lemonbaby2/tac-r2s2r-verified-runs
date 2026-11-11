@@ -40,6 +40,10 @@ We publish the limits together with the numbers so that a classifier-level resul
 | `figures/*.png` | — | Figures generated from these runs during manuscript preparation |
 | `SCHEMA.md` | — | Field-by-field dictionary for every released file |
 | `REPRODUCE.md` | — | Environment and exact commands to regenerate the runs |
+| `DATASHEET.md` | — | Datasheet (Gebru et al. template): motivation, composition, collection, uses, distribution, maintenance |
+| `VERIFICATION.md` | — | Independent GB10 re-run vs manuscript: **16/16 cells reproduced to < 0.1 pp** |
+| `supplemental/gb10/` | 21 KB | Raw GB10 re-run outputs (160 runs) + `verify_dgx_vs_paper.csv` (3-GPU cross-check) |
+| `references/` | ~90 KB | The manuscript's 36 cited works: `BIBLIOGRAPHY.md`, `references.bib`, `arxiv_metadata.json`, `fetch_pdfs.sh` |
 
 ---
 
@@ -113,13 +117,30 @@ These are part of the data, not footnotes to hide:
 
 ## Citation
 
-If you use these runs, please cite the dataset (see `CITATION.cff`) and the accompanying manuscript. A DOI will be minted through Zenodo once the repository is archived; until then, cite the repository URL and the version tag `v1.0.0`.
+If you use these runs, please cite the dataset (see `CITATION.cff`) and the accompanying manuscript. A DOI will be minted through Zenodo once the repository is archived; until then, cite the repository URL and the version tag `v1.1.0`.
 
 ```
 Li, Z., & Chen, J. (2026). TAC-R2S2R verified GPU runs: 160 seeded runs of a controlled
-synthetic sim-to-real transfer proxy (v1.0.0) [Data set]. GitHub.
+synthetic sim-to-real transfer proxy (v1.1.0) [Data set]. GitHub.
 https://github.com/lemonbaby2/tac-r2s2r-verified-runs
 ```
+
+## Getting a DOI (Zenodo)
+
+A DOI is minted automatically by Zenodo when a GitHub **release** is published from a
+repository that has Zenodo archiving enabled. `.zenodo.json` in this repo already declares
+the title, authors, license (CC BY 4.0), keywords and description, so Zenodo uses it verbatim.
+
+One-time setup (author action, ~2 min):
+
+1. Sign in at <https://zenodo.org> with GitHub; open **Settings → GitHub** and toggle this
+   repository **ON**.
+2. Create a GitHub release (e.g. tag `v1.1.0`). Zenodo archives the snapshot and mints a
+   **version DOI** plus a **concept DOI** (for "latest").
+3. Copy the DOI badge from Zenodo into this README, and add it to `CITATION.cff`
+   (`doi:` / `identifiers:`).
+
+Until then, cite the repository URL and the version tag.
 
 ## License
 

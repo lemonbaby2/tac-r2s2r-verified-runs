@@ -13,3 +13,11 @@ runs/
 
 .DS_Store
 Thumbs.db
+
+# Reference PDFs are fetched on demand (large); never commit them
+references/pdfs/
+# One-off scaffolding scripts with absolute Windows paths
+build_references.py
+fetch_refs_meta.py
+gen_refs.py
+patch_meta.py
