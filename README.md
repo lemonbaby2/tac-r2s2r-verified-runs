@@ -44,8 +44,46 @@ We publish the limits together with the numbers so that a classifier-level resul
 | `VERIFICATION.md` | — | Independent GB10 re-run vs manuscript: **16/16 cells reproduced to < 0.1 pp** |
 | `supplemental/gb10/` | 21 KB | Raw GB10 re-run outputs (160 runs) + `verify_dgx_vs_paper.csv` (3-GPU cross-check) |
 | `references/` | ~90 KB | The manuscript's 36 cited works: `BIBLIOGRAPHY.md`, `references.bib`, `arxiv_metadata.json`, `fetch_pdfs.sh` |
+| `experiments_v2/` | 417 KB | **v2.0.0 research extension** — collapse diagnosis, frozen-teacher fix, calibration. Code (`tacpp.py`, `analyze.py`), 450-run results, per-epoch instrumentation, figures, and `RESEARCH_EXTENSION.md`. See below. |
 
 ---
+
+## v2.0.0 — Research extension: structural degeneracy in task-weighted curriculum
+
+This version adds a self-contained research extension (`experiments_v2/`) that turns the
+manuscript's unexplained negative result into a diagnosed mechanism and a minimal fix.
+Summary (full write-up: `experiments_v2/RESEARCH_EXTENSION.md`):
+
+- **The collapse is budget-progressive.** Task-weighted consistency degrades monotonically
+  from **90.7% (budget 256) to 50.3% (4096)**, not just at the single budget 2048 the paper
+  reports. Instrumentation shows prediction entropy saturating to 0 and representation
+  variance growing two orders of magnitude (0.5k → 12.5k) as accuracy falls to chance.
+- **It is structural, not a magnitude problem.** Budget-annealed regularisation (BAR) only
+  delays it (best α gives 57.8–67.3% at 4096); a variance floor does not fix it either.
+- **Frozen-teacher invariance (FTI) fixes it.** Applying the invariance penalty against a
+  frozen (non-collapsed) teacher removes the degenerate minimum: **94.0% at budget 4096**,
+  monotone, matching TAC. Cold-start caveat: FTI is weaker at budgets 256–512.
+- **Calibration reduces confident errors.** Post-hoc temperature scaling on a held-out source
+  split cuts the confident-error rate (HCE) by **17–40%** with no accuracy change.
+
+Main table (target accuracy %, 10 seeds; CIs in `experiments_v2/analysis/table_main.md`):
+
+| Budget | S | DR | TW | TAC | TW-BAR | TW-FTI |
+|---:|---:|---:|---:|---:|---:|---:|
+| 256  | 76.56 | 71.27 | 90.73 | 89.78 | 90.73 | 78.59 |
+| 1024 | 83.87 | 75.60 | 82.59 | 92.90 | 90.01 | 91.42 |
+| 2048 | 85.90 | 76.91 | **58.10** | 93.80 | 65.25 | **92.59** |
+| 4096 | 87.65 | 78.82 | **50.29** | 94.27 | 57.78 | **94.01** |
+
+Reproduce (any CUDA machine):
+
+```bash
+python experiments_v2/tacpp.py --stage main  --seeds 11 23 37 53 71 83 97 109 127 149 --out results
+python experiments_v2/tacpp.py --stage sweep --seeds 11 23 37 53 71 --out results
+python experiments_v2/tacpp.py --stage diag  --seeds 11 23 37 --out results
+python experiments_v2/analyze.py
+```
+
 
 ## Verify the paper's numbers in one command
 
@@ -117,11 +155,11 @@ These are part of the data, not footnotes to hide:
 
 ## Citation
 
-If you use these runs, please cite the dataset (see `CITATION.cff`) and the accompanying manuscript. A DOI will be minted through Zenodo once the repository is archived; until then, cite the repository URL and the version tag `v1.1.0`.
+If you use these runs, please cite the dataset (see `CITATION.cff`) and the accompanying manuscript. A DOI will be minted through Zenodo once the repository is archived; until then, cite the repository URL and the version tag `v2.0.0`.
 
 ```
 Li, Z., & Chen, J. (2026). TAC-R2S2R verified GPU runs: 160 seeded runs of a controlled
-synthetic sim-to-real transfer proxy (v1.1.0) [Data set]. GitHub.
+synthetic sim-to-real transfer proxy (v2.0.0) [Data set]. GitHub.
 https://github.com/lemonbaby2/tac-r2s2r-verified-runs
 ```
 

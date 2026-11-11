@@ -10,8 +10,8 @@ abstract: >-
   experiment, not a VLA policy training run, and not a complete Real2Sim2Real benchmark.
   The field `target_success_rate` is a legacy name for binary classification accuracy and
   does not denote robot task success.
-version: "1.1.0"
-date-released: "2026-11-11"
+version: "2.0.0"
+date-released: "2026-11-12"
 license: CC-BY-4.0
 repository-code: "https://github.com/lemonbaby2/tac-r2s2r-verified-runs"
 keywords:
